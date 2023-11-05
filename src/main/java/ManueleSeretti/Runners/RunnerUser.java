@@ -1,6 +1,7 @@
 package ManueleSeretti.Runners;
 
 import ManueleSeretti.DAO.IUserDao;
+import ManueleSeretti.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -14,11 +15,11 @@ public class RunnerUser implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//
-//        for (int i = 0; i < 50; i++) {
-//            User utente = User.builder().build();
-//            userDao.save(utente);
-//        }
+
+        for (int i = 0; i < 50; i++) {
+            User utente = User.builder().build();
+            userDao.save(utente);
+        }
 
     }
 }

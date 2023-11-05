@@ -14,10 +14,12 @@ import java.util.Random;
 @Entity
 @Builder(builderClassName = "postazioneBuilder")
 public class Postazione {
-    @Id
-    @GeneratedValue
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "postazioni_id", nullable = false)
+    private Long postazioniId;
+
 
     private String descrizione;
     private int maxPerson;
@@ -32,6 +34,10 @@ public class Postazione {
         this.maxPerson = maxPerson;
         this.tipo = tipo;
         this.edificio = edificio;
+    }
+
+    public void setPostazioniId(Long postazioniId) {
+        this.postazioniId = postazioniId;
     }
 
     public void setDescrizione(String descrizione) {

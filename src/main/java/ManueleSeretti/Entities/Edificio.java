@@ -1,10 +1,7 @@
 package ManueleSeretti.Entities;
 
 import com.github.javafaker.Faker;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Locale;
@@ -18,8 +15,9 @@ import java.util.Set;
 @AllArgsConstructor
 public class Edificio {
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "edificio_id", nullable = false)
+    private long edificioId;
     private String name;
     private String indirizzo;
     private String city;

@@ -1,9 +1,7 @@
 package ManueleSeretti.Entities;
 
 import com.github.javafaker.Faker;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Locale;
@@ -17,8 +15,9 @@ import java.util.Locale;
 @Builder(builderClassName = "userBuilder")
 public class User {
     @Id
-    @GeneratedValue
-    private long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id", nullable = false)
+    private long userId;
 
     private String userName;
     private String fullName;
