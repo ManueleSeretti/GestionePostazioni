@@ -19,12 +19,17 @@ public class PostazioneService implements IPostazioneDao {
 
     @Override
     public void findByIdAndUpdate(long id, Postazione postazione) {
-
+        Postazione p = this.findById(id);
+        p.setDescrizione(postazione.getDescrizione());
+        p.setTipo(postazione.getTipo());
+        p.setEdificio(postazione.getEdificio());
+        p.setMaxPerson(postazione.getMaxPerson());
+        postazioneRepository.save(p);
     }
 
     @Override
     public void findByIdAndDelete(long id) {
-        Postazione p = postazioneRepository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
+        Postazione p = this.findById(id);
         postazioneRepository.delete(p);
     }
 

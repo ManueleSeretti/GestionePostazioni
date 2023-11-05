@@ -19,12 +19,17 @@ public class EdificoService implements IEdificioDao {
 
     @Override
     public void findByIdAndUpdate(long id, Edificio edificio) {
-
+        Edificio e = this.findById(id);
+        e.setName(edificio.getName());
+        e.setIndirizzo(edificio.getIndirizzo());
+        e.setCity(edificio.getCity());
+        edificioRepository.save(e);
     }
 
     @Override
     public void findByIdAndDelete(long id) {
-
+        Edificio e = this.findById(id);
+        edificioRepository.delete(e);
     }
 
     @Override
@@ -35,6 +40,6 @@ public class EdificoService implements IEdificioDao {
 
     @Override
     public List<Edificio> findAll() {
-        return null;
+        return edificioRepository.findAll();
     }
 }

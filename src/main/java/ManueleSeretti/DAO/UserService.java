@@ -15,11 +15,16 @@ public class UserService implements IUserDao {
     @Override
     public void save(User user) {
         userRepository.save(user);
+        System.out.println("utente salvato correttamente!");
     }
 
     @Override
     public void findByIdAndUpdate(long id, User user) {
-
+        User utente = this.findById(id);
+        utente.setFullName(user.getFullName());
+        utente.setUserName(user.getUserName());
+        utente.setEmail(user.getEmail());
+        userRepository.save(utente);
     }
 
     @Override
