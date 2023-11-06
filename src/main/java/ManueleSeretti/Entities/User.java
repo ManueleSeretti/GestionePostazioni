@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Locale;
 
 @Getter
@@ -22,6 +23,8 @@ public class User {
     private String userName;
     private String fullName;
     private String email;
+    @OneToMany(mappedBy = "utente")
+    private List<Prenotazione> listaPrenotazioni;
 
     public static class userBuilder {
         private Faker faker = new Faker(Locale.ITALY);

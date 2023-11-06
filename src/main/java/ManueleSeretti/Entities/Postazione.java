@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -28,6 +29,8 @@ public class Postazione {
     @ManyToOne
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
+    @OneToMany(mappedBy = "utente")
+    private List<Prenotazione> listaPrenotazioni;
 
     public Postazione(String descrizione, int maxPerson, TipoPostazione tipo, Edificio edificio) {
         this.descrizione = descrizione;
