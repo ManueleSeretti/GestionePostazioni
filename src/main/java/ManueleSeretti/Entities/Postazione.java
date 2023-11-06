@@ -29,7 +29,7 @@ public class Postazione {
     @ManyToOne
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
-    @OneToMany(mappedBy = "utente")
+    @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> listaPrenotazioni;
 
     public Postazione(String descrizione, int maxPerson, TipoPostazione tipo, Edificio edificio) {

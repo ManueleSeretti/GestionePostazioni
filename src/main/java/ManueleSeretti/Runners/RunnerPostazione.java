@@ -3,8 +3,6 @@ package ManueleSeretti.Runners;
 import ManueleSeretti.DAO.IEdificioDao;
 import ManueleSeretti.DAO.IPostazioneDao;
 import ManueleSeretti.Entities.Edificio;
-import ManueleSeretti.Entities.Postazione;
-import ManueleSeretti.Entities.TipoPostazione;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -25,10 +23,10 @@ public class RunnerPostazione implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Random rndm = new Random();
         List<Edificio> listaEdifici = edificioDao.findAll();
-
-        for (int i = 0; i < 100; i++) {
-            Postazione p = new Postazione("descrizione", 10, TipoPostazione.randomPostazione(), listaEdifici.get(rndm.nextInt(0, listaEdifici.size() - 1)));
-            postazioneDao.save(p);
-        }
+//
+//        for (int i = 0; i < 100; i++) {
+//            Postazione p = new Postazione("descrizione", 10, TipoPostazione.randomPostazione(), listaEdifici.get(rndm.nextInt(0, listaEdifici.size() - 1)));
+//            postazioneDao.save(p);
+//        }
     }
 }

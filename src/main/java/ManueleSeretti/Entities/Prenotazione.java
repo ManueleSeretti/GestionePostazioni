@@ -19,7 +19,7 @@ public class Prenotazione {
     @Column(name = "data", nullable = false)
     private LocalDate data;
     @ManyToOne
-    @JoinColumn(name = "prenotazione_id", nullable = false)
+    @JoinColumn(name = "utente_id", nullable = false)
     private User utente;
     @ManyToOne
     @JoinColumn(name = "postazione_id", nullable = false)
